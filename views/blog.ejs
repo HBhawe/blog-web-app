@@ -1,0 +1,13 @@
+<!-- Step 3 Add Header -->
+<%- include("partials/header.ejs") %>
+
+<form action="/submit" method="POST">
+    <label for="blogName">Name</label>
+    <input type="text" name="blogName" placeholder="Blog name" />
+    <label for="blogContent">Content</label>
+    <textarea name="blogContent" id="blogContent" placeholder="Blog content"></textarea>
+    <input type="submit" value="Save" />
+</form>
+
+<!-- Step 3 Add Footer -->
+<%- include("partials/footer.ejs") %>
