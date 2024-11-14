@@ -9,7 +9,12 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    // res.render("index.ejs", {blog: blog});
+    let formSubmission = req.body;
+    let blogName = formSubmission.blogName;
+    let blogContent = formSubmission.blogContent;
+    blog.push({name: blogName, content: blogContent});
+    res.render("index.ejs", {blog: blog});
 })
 
 app.get("/about", (req, res) => {
@@ -23,6 +28,14 @@ app.get("/contact", (req, res) => {
 app.get("/blog", (req, res) => {
     res.render("blog.ejs");
 })
+
+app.post("/", (req, res) => {
+    let formSubmission = req.body;
+    let blogName = formSubmission.blogName;
+    let blogContent = formSubmission.blogContent;
+    blog.push({name: blogName, content: blogContent});
+    res.render("index.ejs", {blog: blog});
+});
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);

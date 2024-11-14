@@ -3,5 +3,13 @@
 
 <a href="/blog"><button class="btn btn-primary d-inline-flex align-items-center"><ion-icon name="add-outline"></ion-icon>New Blog</button></a>
 
+<% if (locals.blog) { %>
+    <ul>
+        <% blog.forEach((blog,index) => { %>
+            <li><a href="/blogView" data-index=<%= index %>><%= blog.name %></a></li>
+        <%  }); %>
+    </ul>
+<% } %>
+
 <!-- Step 3 Add Footer -->
 <%- include("partials/footer.ejs") %>
